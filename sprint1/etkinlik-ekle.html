@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Etkinlik Ekle</title>
+</head>
+<body>
+
+  <header>
+    <h1>Etkinlik Ekle</h1>
+    <nav>
+      <a href="index.html">Ana Sayfa</a>
+      <a href="etkinlik-detay.html">Detay</a>
+      <a href="etkinlik-ekle.html">Ekle</a>
+    </nav>
+  </header>
+
+  <main>
+    <form action="#" method="post">
+      <label for="ad">Etkinlik Adı</label><br>
+      <input type="text" id="ad" name="ad" required><br>
+
+      <label for="kategori">Kategori</label><br>
+      <select id="kategori" name="kategori" required>
+        <option value="seminer">Seminer</option>
+        <option value="atolye">Atölye</option>
+        <option value="konser">Konser</option>
+      </select><br>
+
+      <label for="tarih">Tarih / Saat</label><br>
+      <input type="datetime-local" id="tarih" name="tarih" required><br>
+
+      <label for="yer">Yer</label><br>
+      <input type="text" id="yer" name="yer" required><br>
+
+      <label for="aciklama">Açıklama</label><br>
+      <textarea id="aciklama" name="aciklama" rows="4" cols="40" required></textarea><br>
+
+      <button type="submit">Kaydet</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>Hayrunnisa Altınkaya · 2416501087 · 2026</p>
+  </footer>
+
+</body>
+</html>
