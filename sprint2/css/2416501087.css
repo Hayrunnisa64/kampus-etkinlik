@@ -1,0 +1,185 @@
+/* Hayrunnisa Altınkaya — 2416501087 */
+:root {
+  --no: 2416501087;
+  --ton: mod(var(--no), 360);
+  --renk-ana: hsl(var(--ton) 65% 38%);
+  --renk-zemin: hsl(var(--ton) 30% 97%);
+  --font: "Palatino Linotype", serif;
+  --bosluk-m: 1rem;  --kose: 8px;
+}
+body { font-family: var(--font); }
+
+/* Ek renkler: kart zemini, çizgi ve hata rengi */
+:root {
+  --renk-kart: hsl(var(--ton) 30% 100%);
+  --renk-cizgi: hsl(var(--ton) 30% 85%);
+  --renk-hata: hsl(0 70% 45%);
+  --renk-hata-zemin: hsl(0 100% 97%);
+}
+
+/* ---------- Genel (önce telefon) ---------- */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--renk-zemin);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--kose);
+}
+
+/* ---------- Başlık ve menü (5 sayfada aynı) ---------- */
+header {
+  background: var(--renk-ana);
+  color: var(--renk-zemin);
+  padding: var(--bosluk-m);
+}
+
+header h1 {
+  margin: 0 0 calc(var(--bosluk-m) / 2);
+  font-size: 1.4rem;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--bosluk-m);
+}
+
+nav a {
+  display: inline-block;
+  padding: calc(var(--bosluk-m) / 4) 0;
+  color: var(--renk-zemin);
+  text-decoration: none;
+}
+
+/* ---------- İçerik ---------- */
+main {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: var(--bosluk-m);
+}
+
+main a {
+  color: var(--renk-ana);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+footer {
+  padding: var(--bosluk-m);
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* ---------- Kartlar: telefonda tek sütun ---------- */
+.kartlar {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--bosluk-m);
+}
+
+.kartlar article {
+  background: var(--renk-kart);
+  border: 1px solid var(--renk-cizgi);
+  border-radius: var(--kose);
+  padding: var(--bosluk-m);
+}
+
+.kartlar h3 {
+  margin: 0 0 calc(var(--bosluk-m) / 2);
+}
+
+.kartlar p {
+  margin: 0 0 calc(var(--bosluk-m) / 4);
+}
+
+/* ---------- Detay: telefonda alt alta ---------- */
+.detay {
+  display: grid;
+  gap: var(--bosluk-m);
+}
+
+.detay figure {
+  margin: 0;
+}
+
+.detay figcaption {
+  margin-top: calc(var(--bosluk-m) / 2);
+}
+
+.detay dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: calc(var(--bosluk-m) / 2) var(--bosluk-m);
+  margin: 0;
+  padding: var(--bosluk-m);
+  background: var(--renk-kart);
+  border: 1px solid var(--renk-cizgi);
+  border-radius: var(--kose);
+}
+
+.detay dt {
+  font-weight: bold;
+}
+
+.detay dd {
+  margin: 0;
+}
+
+/* ---------- Form: label üstte, hatalı alan kırmızı ---------- */
+form label {
+  display: block;
+  margin: var(--bosluk-m) 0 calc(var(--bosluk-m) / 4);
+}
+
+form label:first-child {
+  margin-top: 0;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: calc(var(--bosluk-m) / 2);
+  font: inherit;
+  background: var(--renk-kart);
+  border: 1px solid var(--renk-cizgi);
+  border-radius: var(--kose);
+}
+
+input:user-invalid,
+select:user-invalid,
+textarea:user-invalid {
+  border-color: var(--renk-hata);
+  background: var(--renk-hata-zemin);
+}
+
+button {
+  min-height: 2.75rem;
+  margin-top: var(--bosluk-m);
+  padding: calc(var(--bosluk-m) / 2) calc(var(--bosluk-m) * 1.5);
+  font: inherit;
+  font-weight: bold;
+  color: var(--renk-zemin);
+  background: var(--renk-ana);
+  border: none;
+  border-radius: var(--kose);
+  cursor: pointer;
+}
+
+/* ---------- Geniş ekran ---------- */
+@media (min-width: 600px) {
+  .kartlar {
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  }
+
+  .detay {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+}
