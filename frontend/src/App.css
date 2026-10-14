@@ -1,0 +1,340 @@
+/* Hayrunnisa Altınkaya — 2416501087 */
+:root {
+  --no: 2416501087;
+  --ton: mod(var(--no), 360);
+  --renk-ana: hsl(var(--ton) 65% 38%);
+  --renk-zemin: hsl(var(--ton) 30% 97%);
+  --font: "Palatino Linotype", serif;
+  --bosluk-m: 1rem;  --kose: 8px;
+}
+body { font-family: var(--font); }
+
+/* Ek renkler */
+:root {
+  --renk-kart: hsl(var(--ton) 30% 100%);
+  --renk-cizgi: hsl(var(--ton) 30% 85%);
+  --renk-rozet: hsl(var(--ton) 60% 92%);
+  --renk-soluk: hsl(var(--ton) 10% 35%);
+  --renk-hata: hsl(0 70% 45%);
+  --renk-hata-zemin: hsl(0 100% 97%);
+  --renk-basari: hsl(140 60% 28%);
+  --renk-basari-zemin: hsl(140 50% 95%);
+}
+
+/* ---------- Genel (önce telefon) ---------- */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--renk-zemin);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--kose);
+}
+
+/* ---------- Başlık ve menü (5 sayfada aynı) ---------- */
+header {
+  background: var(--renk-ana);
+  color: var(--renk-zemin);
+  padding: var(--bosluk-m);
+}
+
+header h1 {
+  margin: 0 0 calc(var(--bosluk-m) / 4);
+  font-size: 1.4rem;
+}
+
+header p {
+  margin: 0 0 calc(var(--bosluk-m) / 2);
+  font-size: 0.9rem;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(var(--bosluk-m) / 4);
+  margin-top: calc(var(--bosluk-m) / 2);
+}
+
+nav a {
+  display: inline-block;
+  padding: calc(var(--bosluk-m) / 2) calc(var(--bosluk-m) * 0.75);
+  color: var(--renk-zemin);
+  text-decoration: none;
+  border-radius: var(--kose);
+}
+
+/* Bulunduğun sayfanın linki */
+nav a[aria-current="page"] {
+  background: var(--renk-zemin);
+  color: var(--renk-ana);
+  font-weight: bold;
+}
+
+/* ---------- İçerik ---------- */
+main {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: var(--bosluk-m);
+}
+
+main a {
+  color: var(--renk-ana);
+  font-weight: bold;
+}
+
+footer {
+  padding: var(--bosluk-m);
+  border-top: 1px solid var(--renk-cizgi);
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--renk-soluk);
+}
+
+/* Link görünümlü buton */
+main a.buton,
+button {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: calc(var(--bosluk-m) / 2) calc(var(--bosluk-m) * 1.5);
+  font: inherit;
+  font-weight: bold;
+  color: var(--renk-zemin);
+  background: var(--renk-ana);
+  border: none;
+  border-radius: var(--kose);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* ---------- Kartlar: telefonda tek sütun ---------- */
+.kartlar {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--bosluk-m);
+}
+
+.kartlar article {
+  background: var(--renk-kart);
+  border: 1px solid var(--renk-cizgi);
+  border-top: 4px solid var(--renk-ana);
+  border-radius: var(--kose);
+  padding: var(--bosluk-m);
+}
+
+.kartlar h3 {
+  margin: 0 0 calc(var(--bosluk-m) / 2);
+}
+
+.kartlar p {
+  margin: 0 0 calc(var(--bosluk-m) / 2);
+}
+
+.rozet {
+  display: inline-block;
+  padding: 0 calc(var(--bosluk-m) / 2);
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: var(--renk-ana);
+  background: var(--renk-rozet);
+  border-radius: var(--kose);
+}
+
+/* ---------- Filtre kutusu: telefonda alt alta ---------- */
+.filtre {
+  display: grid;
+  gap: calc(var(--bosluk-m) / 4);
+  padding: var(--bosluk-m);
+  background: var(--renk-kart);
+  border: 1px solid var(--renk-cizgi);
+  border-radius: var(--kose);
+}
+
+#sonuc {
+  color: var(--renk-ana);
+  font-weight: bold;
+}
+
+/* ---------- Detay: telefonda alt alta ---------- */
+.detay {
+  display: grid;
+  gap: var(--bosluk-m);
+}
+
+.afis {
+  margin: 0;
+}
+
+.afis figcaption {
+  margin-top: calc(var(--bosluk-m) / 2);
+  font-style: italic;
+  color: var(--renk-soluk);
+}
+
+.kunye {
+  padding: var(--bosluk-m);
+  background: var(--renk-kart);
+  border: 1px solid var(--renk-cizgi);
+  border-radius: var(--kose);
+}
+
+.kunye h2,
+.aciklama h2 {
+  margin: 0 0 calc(var(--bosluk-m) / 2);
+  font-size: 1.25rem;
+}
+
+.kunye dl {
+  margin: 0;
+}
+
+.kunye dt {
+  font-weight: bold;
+}
+
+.kunye dd {
+  margin: 0 0 calc(var(--bosluk-m) / 2);
+}
+
+.butonlar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(var(--bosluk-m) / 2);
+}
+
+/* ---------- Kırmızı uyarı kutusu ---------- */
+.hata-kutusu {
+  padding: var(--bosluk-m);
+  color: var(--renk-hata);
+  background: var(--renk-hata-zemin);
+  border: 1px solid var(--renk-hata);
+  border-radius: var(--kose);
+}
+
+.hata-kutusu p {
+  margin: 0;
+}
+
+/* ---------- Form ---------- */
+label {
+  display: block;
+  font-weight: bold;
+}
+
+#form-aciklama {
+  color: var(--renk-soluk);
+}
+
+#etkinlik-formu,
+#form-mesaj {
+  max-width: 36rem;
+}
+
+#etkinlik-formu label {
+  margin: var(--bosluk-m) 0 calc(var(--bosluk-m) / 4);
+}
+
+#etkinlik-formu label:first-child {
+  margin-top: 0;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  min-height: 2.75rem;
+  padding: calc(var(--bosluk-m) / 2);
+  font: inherit;
+  background: var(--renk-kart);
+  border: 1px solid var(--renk-cizgi);
+  border-radius: var(--kose);
+}
+
+/* Hatalı alan kırmızı */
+input[aria-invalid="true"],
+select[aria-invalid="true"],
+textarea[aria-invalid="true"] {
+  border-color: var(--renk-hata);
+  background: var(--renk-hata-zemin);
+}
+
+/* Alanın altındaki hata yazısı */
+form span[id$="-hata"] {
+  display: block;
+  margin-top: calc(var(--bosluk-m) / 4);
+  color: var(--renk-hata);
+  font-size: 0.9rem;
+}
+
+#etkinlik-formu button {
+  margin-top: var(--bosluk-m);
+}
+
+/* Form altındaki mesaj kutusu */
+.mesaj-hata,
+.mesaj-basari {
+  margin-top: var(--bosluk-m);
+  padding: var(--bosluk-m);
+  border-radius: var(--kose);
+}
+
+.mesaj-hata {
+  color: var(--renk-hata);
+  background: var(--renk-hata-zemin);
+  border: 1px solid var(--renk-hata);
+}
+
+.mesaj-basari {
+  color: var(--renk-basari);
+  background: var(--renk-basari-zemin);
+  border: 1px solid var(--renk-basari);
+}
+
+.mesaj-basari pre {
+  margin: calc(var(--bosluk-m) / 2) 0 0;
+  color: initial;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* ---------- Geniş ekran ---------- */
+@media (min-width: 600px) {
+  .kartlar {
+    grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  }
+
+  .filtre {
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto auto;
+    grid-auto-flow: column;
+    column-gap: var(--bosluk-m);
+  }
+
+  /* Afiş solda, künye sağda */
+  .detay.afisli {
+    grid-template-columns: 3fr 2fr;
+    grid-template-areas:
+      "afis kunye"
+      "aciklama kunye";
+    align-items: start;
+  }
+
+  .afisli .afis { grid-area: afis; }
+  .afisli .kunye { grid-area: kunye; }
+  .afisli .aciklama { grid-area: aciklama; }
+
+  .kunye dl {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: calc(var(--bosluk-m) / 2) var(--bosluk-m);
+  }
+
+  .kunye dd {
+    margin: 0;
+  }
+}
