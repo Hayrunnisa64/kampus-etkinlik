@@ -1,32 +1,56 @@
-# React + TypeScript + Vite
+https://hayrunnisaaltinkaya-frontend.vercel.app
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+# Kampüs Etkinlikleri — Sprint 6 (Vize)
 
-Currently, two official plugins are available:
+Kampüs etkinliklerini listeleyen, arayan ve yöneten React uygulaması. React Router ile 10 sayfa, Context ile ortak veri; ekleme, güncelleme ve silme tüm sayfalarda görünür.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+**Hazırlayan:** Hayrunnisa Altınkaya - 2416501087
 
-## React Compiler
+## Sayfalar (10 route)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| Adres | Sayfa |
+| --- | --- |
+| `/` | Ana Sayfa: yaklaşan 2 etkinlik |
+| `/events` | Etkinlikler: arama ve kategori filtresi |
+| `/events/:id` | Etkinlik detayı |
+| `/admin` | Yönetim: tablo, düzenle, sil (onaylı) |
+| `/admin/new` | Etkinlik ekle |
+| `/admin/:id/edit` | Etkinlik güncelle |
+| `/login` | Giriş yap |
+| `/register` | Kayıt ol |
+| `/forgot-password` | Şifremi unuttum |
+| `*` | Sayfa bulunamadı |
 
-## Expanding the Oxlint configuration
+## Klasör yapısı
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+| Klasör | İçerik |
+| --- | --- |
+| `src/components/layout/` | Header, Navigation, Footer |
+| `src/components/events/` | EventCard, EventList, EventFilter, EventDetail |
+| `src/components/forms/` | EventForm |
+| `src/context/` | EventsContext: etkinlik listesi, ekle, güncelle, sil |
+| `src/pages/` | 10 sayfa |
+| `src/data/` | Başlangıçtaki 6 etkinlik |
+| `src/types/` | CampusEvent tipi |
+| `src/utils/` | filter-events, format-date, validate-event |
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+## Özellikler
+
+- Etkinlik ekleme, güncelleme ve silme (silmeden önce onay); değişiklik Ana Sayfa, Etkinlikler ve Detay'da görünür.
+- Arama ve kategori filtresi birlikte çalışır.
+- Form doğrulama: etkinlik formu, giriş, kayıt, şifremi unuttum.
+- Telefonda yönetim tablosu kart görünümüne geçer.
+- Veriler bellekte tutulur; sayfa yenilenince başlangıç verisine döner.
+
+## Numaraya göre renk ve font
+
+- `--no: 2416501087` → `--ton` = 2416501087 mod 360 = **7** (kırmızı tonları)
+- Son hane **7** → `--font: "Palatino Linotype", serif`
+
+## Çalıştırma
+
+```bash
+cd frontend
+npm install
+npm run dev
 ```
-
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.

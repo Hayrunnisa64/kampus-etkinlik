@@ -19,6 +19,7 @@ body { font-family: var(--font); }
   --renk-hata-zemin: hsl(0 100% 97%);
   --renk-basari: hsl(140 60% 28%);
   --renk-basari-zemin: hsl(140 50% 95%);
+  --bosluk-s: calc(var(--bosluk-m) / 2);
 }
 
 /* ---------- Genel (önce telefon) ---------- */
@@ -337,4 +338,109 @@ form span[id$="-hata"] {
   .kunye dd {
     margin: 0;
   }
+}
+
+/* ---------- Sprint 6: menü artık header'ın kardeşi ---------- */
+header.site-baslik {
+  display: flow-root;
+  padding-bottom: 0;
+}
+
+header.site-baslik > :last-child {
+  margin-bottom: 0;
+}
+
+nav.menu {
+  margin-top: 0;
+  padding: calc(var(--bosluk-m) / 2) var(--bosluk-m) var(--bosluk-m);
+  background: var(--renk-ana);
+}
+
+/* ---------- Sprint 6: form hata metni ---------- */
+.hata-metni {
+  display: block;
+  margin-top: calc(var(--bosluk-m) / 4);
+  color: var(--renk-hata);
+  font-size: 0.9rem;
+}
+
+.hata-metni:empty {
+  display: none;
+}
+
+/* ---------- Sprint 6: yönetim tablosu ---------- */
+.tablo { width: 100%; border-collapse: collapse; }
+.tablo th { background: var(--renk-ana); color: #fff; }
+.tablo th,
+.tablo td {
+  padding: var(--bosluk-s) var(--bosluk-m);
+  text-align: left;
+}
+.tablo td {
+  background: var(--renk-kart);
+  border-bottom: 1px solid var(--renk-cizgi);
+}
+.islemler { display: flex; gap: var(--bosluk-s); }
+.buton-sil { background: var(--renk-hata); }
+
+@media (max-width: 699px) {
+  .tablo thead { display: none; }
+  .tablo tr {
+    display: block;
+    margin-bottom: var(--bosluk-m);
+    padding: var(--bosluk-s) 0;
+    background: var(--renk-kart);
+    border: 1px solid var(--renk-cizgi);
+    border-radius: var(--kose);
+  }
+  .tablo td { display: block; border-bottom: none; }
+  .tablo td.islemler { display: flex; }
+  .tablo td[data-baslik]::before {
+    content: attr(data-baslik) ": ";
+    font-weight: 700;
+  }
+}
+/* ---------- Sprint 6: giriş / kayıt formları ---------- */
+.form {
+  max-width: 36rem;
+}
+
+.form label {
+  margin: var(--bosluk-m) 0 calc(var(--bosluk-m) / 4);
+}
+
+.form label:first-child {
+  margin-top: 0;
+}
+
+.form button {
+  margin-top: var(--bosluk-m);
+}
+/* ---------- Üzerine gelince renk değişimi ---------- */
+:root {
+  --renk-koyu: hsl(var(--ton) 65% 28%);
+  --renk-vurgu: hsl(calc(var(--ton) + 180) 60% 40%);
+}
+
+main a,
+main a.buton,
+button,
+nav a {
+  transition: background-color 0.2s, color 0.2s;
+}
+
+/* Üst menü: ana rengin koyusu */
+nav a:not([aria-current="page"]):hover {
+  background: var(--renk-koyu);
+}
+
+/* Butonlar: karşıt renk */
+main a.buton:hover,
+button:hover {
+  background: var(--renk-vurgu);
+}
+
+/* Yazı linkleri: karşıt renk */
+main a:not(.buton):hover {
+  color: var(--renk-vurgu);
 }
