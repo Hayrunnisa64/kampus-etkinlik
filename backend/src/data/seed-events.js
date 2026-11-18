@@ -1,6 +1,5 @@
-export const events = [
+export const seedEvents = [
   {
-    id: "event-1",
     title: "Havacılıkta Kariyer",
     category: "Seminer",
     capacity: 120,
@@ -10,7 +9,6 @@ export const events = [
     description: "Havacılık sektöründe çalışan mühendisler meslekleri tanıtır.",
   },
   {
-    id: "event-2",
     title: "KALKAN",
     category: "Atölye",
     capacity: 20,
@@ -20,7 +18,6 @@ export const events = [
     description: "İki gün süren bir hackathon yarışması.",
   },
   {
-    id: "event-3",
     title: "Mezunlarla Sohbet",
     category: "Söyleşi",
     capacity: 50,
@@ -30,7 +27,6 @@ export const events = [
     description: "Mezunlar iş hayatındaki deneyimlerini anlatır.",
   },
   {
-    id: "event-4",
     title: "Veri Bilimi Nedir?",
     category: "Seminer",
     capacity: 100,
@@ -40,7 +36,6 @@ export const events = [
     description: "Veriyle çalışmanın temel adımları ve meslek alanları tanıtılır.",
   },
   {
-    id: "event-5",
     title: "C# ile İlk Programlar",
     category: "Atölye",
     capacity: 30,
@@ -50,7 +45,6 @@ export const events = [
     description: "Değişken, döngü ve fonksiyon kısa örneklerle işlenir.",
   },
   {
-    id: "event-6",
     title: "TEKNOFEST Deneyimleri",
     category: "Söyleşi",
     capacity: 90,
